@@ -8,7 +8,6 @@ public class ApprovalApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ApprovalApplication.class, args);
-        System.out.println("----- Approval模块 -----");
     }
 
 }
