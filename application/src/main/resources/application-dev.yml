@@ -1,7 +1,4 @@
 spring:
-  web:
-    resources:
-      static-locations: file:/usr/reslog/web/build
   jpa:
     show-sql: true
     hibernate:
@@ -11,7 +8,7 @@ spring:
   application:
     name: data-server
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/statuserver?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+    url: jdbc:mysql://127.0.0.1:3306/statuserver?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true&allowPublicKeyRetriveral=true
     username: root
     password: 522601
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -33,7 +30,13 @@ spring:
       # 数据库连接超时时间,默认30秒，即30000
       connection-timeout: 30000
       connection-test-query: SELECT 1
-  servlet:
-    multipart:
-      max-file-size: 50MB
-      max-request-size: 50MB
+
+thread-pool:
+  # 核心线程数
+  core-pool-size: 10
+  # 最大线程数
+  max-pool-size: 20
+  # 线程队列
+  queue-capacity: 8
+  # 线程存活时间
+  keep-alive-seconds: 60
